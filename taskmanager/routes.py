@@ -35,7 +35,7 @@ def edit_category(category_id):
     return render_template("edit_category.html", category=category)
 
 
-@app.route("/delete_category/<int:category_id>", methods=["GET", "POST"])
+@app.route("/delete_category/<int:category_id>")
 def delete_category(category_id):
     category = Category.query.get_or_404(category_id)
     db.session.delete(category)
@@ -75,7 +75,7 @@ def edit_task(task_id):
     return render_template("edit_task.html", task=task, categories=categories)
 
 
-@app.route("/delete_task/<int:task_id>", methods=["GET", "POST"])
+@app.route("/delete_task/<int:task_id>")
 def delete_task(task_id):
     task = Task.query.get_or_404(task_id)
     db.session.delete(task)
